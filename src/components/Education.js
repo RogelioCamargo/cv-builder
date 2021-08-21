@@ -9,11 +9,15 @@ class Education extends Component {
   }
 
   render() {
+    const { info } = this.props;
     return (
       <div>
-        <h2>Education</h2>
-        <EducationItem />
-        <EducationItem />
+        <h2>Experience</h2>
+        <div>
+          {info.map((education) => (
+            <EducationItem info={education} />
+          ))}
+        </div>
       </div>
     );
   }
