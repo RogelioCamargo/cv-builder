@@ -7,17 +7,19 @@ class ExperienceList extends Component {
   }
 
   render() {
+    const { company, position, from, to } = this.props.info;
+
     return (
       <div style={{ width: "30%" }}>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <label>Company Name</label>
-          <input type="text" />
+          <label>Company</label>
+          <input type="text" name="company" value={company}/>
           <label>Position</label>
-          <input type="text" />
+          <input type="text" name="position" value={position} />
           <label>From</label>
-          <input type="text" />
+          <input type="text" name="from" value={from} />
           <label>To</label>
-          <input type="text" />
+          <input type="text" name="to" value={to} />
         </div>
       </div>
     );

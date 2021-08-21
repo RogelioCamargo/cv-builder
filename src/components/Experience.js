@@ -9,11 +9,15 @@ class Experience extends Component {
   }
 
   render() {
+    const { info } = this.props;
     return (
       <div>
         <h2>Experience</h2>
-        <ExperienceItem />
-        <ExperienceItem />
+        <div>
+          {
+            info.map(experience => <ExperienceItem info={experience} />)
+          }
+        </div>
       </div>
     );;
   }
