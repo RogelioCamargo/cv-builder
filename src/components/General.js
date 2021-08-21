@@ -7,19 +7,19 @@ class General extends Component {
   }
 
   render() {
-    // const { name, email, phoneNumber } = this.props;
+    const { firstName, lastName, email, phoneNumber } = this.props.info;
     return (
       <div style={{ width: "30%" }}>
         <h2>Personal Information</h2>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <label>First Name</label>
-          <input type="text" name="firstName" />
+          <input type="text" name="firstName" value={firstName} />
           <label>Last Name</label>
-          <input type="text" name="lastName" />
+          <input type="text" name="lastName" value={lastName} />
           <label>Email</label>
-          <input type="text" name="email" />
+          <input type="text" name="email" value={email} />
           <label>Phone Number</label>
-          <input type="text" name="phoneNumber" />
+          <input type="text" name="phoneNumber" value={phoneNumber} />
         </div>
       </div>
     );
