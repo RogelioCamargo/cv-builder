@@ -63,7 +63,7 @@ class Main extends Component {
     });
   };
 
-  handleClickExperience = () => {
+  handleClickExperienceAdd = () => {
     this.setState((prevState) => ({
       ...prevState,
       experience: [
@@ -77,6 +77,15 @@ class Main extends Component {
         },
       ],
     }));
+  };
+
+  handleClickExperienceDelete = (id) => {
+    this.setState((prevState) => {
+      const updatedExperience = prevState.experience.filter(
+        (item) => item.id !== id
+      );
+      return { ...prevState, experience: updatedExperience };
+    });
   };
 
   handleChangeEducation = (e, id) => {
@@ -93,7 +102,7 @@ class Main extends Component {
     });
   };
 
-  handleClickEducation = () => {
+  handleClickEducationAdd = () => {
     this.setState((prevState) => ({
       ...prevState,
       education: [
@@ -109,6 +118,15 @@ class Main extends Component {
     }));
   };
 
+  handleClickEducationDelete = (id) => {
+    this.setState((prevState) => {
+      const updatedEducation = prevState.education.filter(
+        (item) => item.id !== id
+      );
+      return { ...prevState, education: updatedEducation };
+    });
+  };
+
   render() {
     const { personal, experience, education } = this.state;
 
@@ -119,12 +137,14 @@ class Main extends Component {
           <Experience
             info={experience}
             onChange={this.handleChangeExperience}
-            onClick={this.handleClickExperience}
+            onClick={this.handleClickExperienceAdd}
+            onClickDelete={this.handleClickExperienceDelete}
           />
           <Education
             info={education}
             onChange={this.handleChangeEducation}
-            onClick={this.handleClickEducation}
+            onClickAdd={this.handleClickEducationAdd}
+            onClickDelete={this.handleClickEducationDelete}
           />
         </div>
         <div style={{ width: "50%" }}>

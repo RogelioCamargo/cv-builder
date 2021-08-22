@@ -9,7 +9,7 @@ class Education extends Component {
   }
 
   render() {
-    const { info, onChange, onClick } = this.props;
+    const { info, onChange, onClickAdd, onClickDelete } = this.props;
     return (
       <div style={{ width: "40%" }}>
         <h2>Education</h2>
@@ -20,11 +20,12 @@ class Education extends Component {
               id={education.id}
               info={education}
               onChange={onChange}
+              onClick={onClickDelete}
             />
           ))}
         </div>
         <div>
-          <button type="button" onClick={onClick}>Add</button>
+          <button type="button" onClick={onClickAdd}>Add</button>
         </div>
       </div>
     );

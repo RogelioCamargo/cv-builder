@@ -8,7 +8,7 @@ class EducationItem extends Component {
 
   render() {
     const { university, major, from, to } = this.props.info;
-    const { id, onChange } = this.props;
+    const { id, onChange, onClick } = this.props;
     return (
       <div>
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -40,6 +40,9 @@ class EducationItem extends Component {
             value={to}
             onChange={(e) => onChange(e, id)}
           />
+        </div>
+        <div>
+          <button type="button" onClick={() => onClick(id)}>Delete</button>
         </div>
       </div>
     );
