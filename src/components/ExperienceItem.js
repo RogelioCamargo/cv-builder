@@ -8,7 +8,7 @@ class ExperienceList extends Component {
 
   render() {
     const { company, position, from, to } = this.props.info;
-    const { id, onChange } = this.props;
+    const { id, onChange, onClick } = this.props;
 
     return (
       <div>
@@ -41,6 +41,9 @@ class ExperienceList extends Component {
             value={to}
             onChange={(e) => onChange(e, id)}
           />
+        </div>
+        <div>
+          <button type="button" onClick={() => onClick(id)}>Delete</button>
         </div>
       </div>
     );

@@ -137,7 +137,7 @@ class Main extends Component {
           <Experience
             info={experience}
             onChange={this.handleChangeExperience}
-            onClick={this.handleClickExperienceAdd}
+            onClickAdd={this.handleClickExperienceAdd}
             onClickDelete={this.handleClickExperienceDelete}
           />
           <Education
