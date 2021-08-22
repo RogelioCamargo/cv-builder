@@ -10,14 +10,14 @@ class Preview extends Component {
     const { personal, experience, education } = this.props.info;
     return (
       <div>
-        <div>
+        <div style={{ height: "250px" }}>
           <h2>Personal</h2>
           <p>{personal.firstName}</p>
           <p>{personal.lastName}</p>
           <p>{personal.email}</p>
           <p>{personal.phoneNumber}</p>
         </div>
-        <div>
+        <div style={{ height: "250px" }}>
           <h2>Experience</h2>
           {experience.map((item) => {
             return (
@@ -30,7 +30,7 @@ class Preview extends Component {
             );
           })}
         </div>
-        <div>
+        <div style={{ height: "250px" }}>
           <h2>Education</h2>
           {education.map((item) => {
             return (

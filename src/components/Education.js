@@ -9,13 +9,18 @@ class Education extends Component {
   }
 
   render() {
-    const { info } = this.props;
+    const { info, onChange } = this.props;
     return (
-      <div>
+      <div style={{ width: "40%" }}>
         <h2>Experience</h2>
         <div>
           {info.map((education) => (
-            <EducationItem info={education} />
+            <EducationItem
+              key={education.id}
+              id={education.id}
+              info={education}
+              onChange={onChange}
+            />
           ))}
         </div>
       </div>

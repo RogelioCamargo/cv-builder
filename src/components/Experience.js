@@ -9,14 +9,19 @@ class Experience extends Component {
   }
 
   render() {
-    const { info } = this.props;
+    const { info, onChange } = this.props;
     return (
       <div>
         <h2>Experience</h2>
-        <div>
-          {
-            info.map(experience => <ExperienceItem info={experience} />)
-          }
+        <div style={{ width: "40%" }}>
+          {info.map((experience) => (
+            <ExperienceItem
+              key={experience.id}
+              id={experience.id}
+              info={experience}
+              onChange={onChange}
+            />
+          ))}
         </div>
       </div>
     );;

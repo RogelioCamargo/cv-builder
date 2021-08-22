@@ -7,19 +7,41 @@ class General extends Component {
   }
 
   render() {
-    const { firstName, lastName, email, phoneNumber } = this.props.info;
+    const { firstName, lastName, email, phoneNumber} = this.props.info;
+    const { onChange } = this.props;
+
     return (
-      <div style={{ width: "30%" }}>
+      <div style={{ width: "40%" }}>
         <h2>Personal Information</h2>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <label>First Name</label>
-          <input type="text" name="firstName" value={firstName} />
+          <input
+            type="text"
+            onChange={onChange}
+            name="firstName"
+            value={firstName}
+          />
           <label>Last Name</label>
-          <input type="text" name="lastName" value={lastName} />
+          <input
+            type="text"
+            onChange={onChange}
+            name="lastName"
+            value={lastName}
+          />
           <label>Email</label>
-          <input type="text" name="email" value={email} />
+          <input
+            type="text"
+            onChange={onChange}
+            name="email"
+            value={email}
+          />
           <label>Phone Number</label>
-          <input type="text" name="phoneNumber" value={phoneNumber} />
+          <input
+            type="text"
+            onChange={onChange}
+            name="phoneNumber"
+            value={phoneNumber}
+          />
         </div>
       </div>
     );

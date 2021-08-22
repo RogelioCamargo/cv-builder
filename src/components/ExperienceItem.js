@@ -8,18 +8,39 @@ class ExperienceList extends Component {
 
   render() {
     const { company, position, from, to } = this.props.info;
+    const { id, onChange } = this.props;
 
     return (
-      <div style={{ width: "30%" }}>
+      <div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <label>Company</label>
-          <input type="text" name="company" value={company}/>
+          <input
+            type="text"
+            name="company"
+            value={company}
+            onChange={(e) => onChange(e, id)}
+          />
           <label>Position</label>
-          <input type="text" name="position" value={position} />
+          <input
+            type="text"
+            name="position"
+            value={position}
+            onChange={(e) => onChange(e, id)}
+          />
           <label>From</label>
-          <input type="text" name="from" value={from} />
+          <input
+            type="text"
+            name="from"
+            value={from}
+            onChange={(e) => onChange(e, id)}
+          />
           <label>To</label>
-          <input type="text" name="to" value={to} />
+          <input
+            type="text"
+            name="to"
+            value={to}
+            onChange={(e) => onChange(e, id)}
+          />
         </div>
       </div>
     );

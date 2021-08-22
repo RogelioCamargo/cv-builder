@@ -11,31 +11,71 @@ class Main extends Component {
 
     this.state = {
       personal: {
-        firstName: "Rogelio",
-        lastName: "Camargo",
-        email: "rogelio.camargo2016@gmail.com",
-        phoneNumber: "(408)981-1510",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
       },
       experience: [
         {
-          company: "Ohi Technolgies",
-          position: "Software Engineer",
-          from: "2020",
-          to: "Present",
+          id: Math.random().toString(36).substr(2, 9),
+          company: "",
+          position: "",
+          from: "",
+          to: "",
         },
       ],
       education: [
         {
-          university: "University of California, San Diego",
-          major: "Computer Science",
-          from: "2018",
-          to: "2020",
+          id: Math.random().toString(36).substr(2, 9),
+          university: "",
+          major: "",
+          from: "",
+          to: "",
         },
       ],
     };
   }
 
-  
+  handleChangePersonal = (e) => {
+    const { name, value } = e.target;
+
+    this.setState((prevState) => ({
+      ...prevState,
+      personal: {
+        ...prevState.personal,
+        [name]: value,
+      },
+    }));
+  };
+
+  handleChangeExperience = (e, id) => {
+    const { name, value } = e.target;
+
+    this.setState((prevState) => {
+      const updatedExperience = prevState.experience.map(item => {
+        if (id === item.id) {
+          return { ...item, [name]: value }
+        }
+        return item;
+      }); 
+      return { ...prevState, experience: [ ...updatedExperience ]}
+    });
+  };
+
+  handleChangeEducation = (e, id) => {
+    const { name, value } = e.target;
+
+    this.setState((prevState) => {
+      const updatedEducation = prevState.education.map((item) => {
+        if (id === item.id) {
+          return { ...item, [name]: value };
+        }
+        return item;
+      });
+      return { ...prevState, education: [...updatedEducation] };
+    });
+  };
 
   render() {
     const { personal, experience, education } = this.state;
@@ -43,9 +83,9 @@ class Main extends Component {
     return (
       <div style={{ display: "flex" }}>
         <div style={{ width: "50%" }}>
-          <General info={personal} />
-          <Experience info={experience} />
-          <Education info={education} />
+          <General info={personal} onChange={this.handleChangePersonal} />
+          <Experience info={experience} onChange={this.handleChangeExperience} />
+          <Education info={education} onChange={this.handleChangeEducation} />
         </div>
         <div style={{ width: "50%" }}>
           <Preview info={this.state} />
