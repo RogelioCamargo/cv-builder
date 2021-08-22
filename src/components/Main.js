@@ -53,14 +53,30 @@ class Main extends Component {
     const { name, value } = e.target;
 
     this.setState((prevState) => {
-      const updatedExperience = prevState.experience.map(item => {
+      const updatedExperience = prevState.experience.map((item) => {
         if (id === item.id) {
-          return { ...item, [name]: value }
+          return { ...item, [name]: value };
         }
         return item;
-      }); 
-      return { ...prevState, experience: [ ...updatedExperience ]}
+      });
+      return { ...prevState, experience: [...updatedExperience] };
     });
+  };
+
+  handleClickExperience = () => {
+    this.setState((prevState) => ({
+      ...prevState,
+      experience: [
+        ...prevState.experience,
+        {
+          id: Math.random().toString(36).substr(2, 9),
+          company: "",
+          position: "",
+          from: "",
+          to: "",
+        },
+      ],
+    }));
   };
 
   handleChangeEducation = (e, id) => {
@@ -77,6 +93,22 @@ class Main extends Component {
     });
   };
 
+  handleClickEducation = () => {
+    this.setState((prevState) => ({
+      ...prevState,
+      education: [
+        ...prevState.education,
+        {
+          id: Math.random().toString(36).substr(2, 9),
+          university: "",
+          major: "",
+          from: "",
+          to: "",
+        },
+      ],
+    }));
+  };
+
   render() {
     const { personal, experience, education } = this.state;
 
@@ -84,8 +116,16 @@ class Main extends Component {
       <div style={{ display: "flex" }}>
         <div style={{ width: "50%" }}>
           <General info={personal} onChange={this.handleChangePersonal} />
-          <Experience info={experience} onChange={this.handleChangeExperience} />
-          <Education info={education} onChange={this.handleChangeEducation} />
+          <Experience
+            info={experience}
+            onChange={this.handleChangeExperience}
+            onClick={this.handleClickExperience}
+          />
+          <Education
+            info={education}
+            onChange={this.handleChangeEducation}
+            onClick={this.handleClickEducation}
+          />
         </div>
         <div style={{ width: "50%" }}>
           <Preview info={this.state} />

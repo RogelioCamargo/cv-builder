@@ -9,7 +9,7 @@ class Experience extends Component {
   }
 
   render() {
-    const { info, onChange } = this.props;
+    const { info, onChange, onClick } = this.props;
     return (
       <div>
         <h2>Experience</h2>
@@ -22,6 +22,11 @@ class Experience extends Component {
               onChange={onChange}
             />
           ))}
+        </div>
+        <div>
+          <button type="button" onClick={onClick}>
+            Add
+          </button>
         </div>
       </div>
     );;

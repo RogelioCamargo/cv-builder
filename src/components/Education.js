@@ -9,10 +9,10 @@ class Education extends Component {
   }
 
   render() {
-    const { info, onChange } = this.props;
+    const { info, onChange, onClick } = this.props;
     return (
       <div style={{ width: "40%" }}>
-        <h2>Experience</h2>
+        <h2>Education</h2>
         <div>
           {info.map((education) => (
             <EducationItem
@@ -22,6 +22,9 @@ class Education extends Component {
               onChange={onChange}
             />
           ))}
+        </div>
+        <div>
+          <button type="button" onClick={onClick}>Add</button>
         </div>
       </div>
     );
